@@ -6,10 +6,11 @@
 > skysurfr/deepRun_02_230516_skysurfr.md
 
 ### PR 제목 (Issues에 있는 해당 주차 계획 부분과 연결)
-`[XX주차] 닉네임 - ch 해당범위 대표주제
+`[XX주차] 닉네임 - ch 해당범위 대표주제`
 > 제목 : [02주차] skysurfr - ch 9~12 function
 
-## 모딥다 스터디 규칙(참고용 요약)
+## 모딥다 스터디 규칙
+[https://github.com/nninzy/deepRun/issues/2] 참고용 요약
 
 ### Repository Fork (완료)
 <details>
