@@ -2,12 +2,12 @@
 
 ## 내 명명규칙
 ### 파일 형식
-`(deepRun_주차_발표날짜_닉네임.md)`
-> skysurfr/deepRun_02_230516_skysurfr.md
+`(deepRun_주차_발표날짜_주제키워드.md)`
+> skysurfr/deepRun_02_230516_naming.md
 
 ### PR 제목 (Issues에 있는 해당 주차 계획 부분과 연결)
 `[XX주차] 닉네임 - ch 해당범위 대표주제`
-> 제목 : [02주차] skysurfr - ch 9~12 function
+> 제목 : [02주차] skysurfr - ch 9~12 네이밍
 
 ## 모딥다 스터디 규칙
 [https://github.com/nninzy/deepRun/issues/2] 참고용 요약
