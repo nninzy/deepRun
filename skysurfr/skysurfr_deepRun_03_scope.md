@@ -2,7 +2,7 @@
 marp: true
 ---
 
-# [[모딥다 스터디 3주차] Scope](skysurfr_deepRun_03_scope.pdf)
+# [[모딥다 스터디 3주차] Scope](skysurfr_deepRun_03_scope.html)
 
 ---
 
