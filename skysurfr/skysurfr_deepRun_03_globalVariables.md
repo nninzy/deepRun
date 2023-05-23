@@ -2,7 +2,9 @@
 marp: true
 ---
 
-# [[모딥다 스터디 3주차] 전역변수의 문제점](skysurfr_deepRun_03_globalVariables.html)
+# [모딥다03] 전역변수의 문제점
+
+Global Variables
 
 ---
 
@@ -16,7 +18,7 @@ marp: true
 ### 지역변수 Local Variables 의 영역
 
 지역 변수는 선언된 위치
->  Lexical = 선언한 거기 = 명명한 장소 = 화살표 &rarr; 그 자체가 생긴 곳
+>Lexical = 선언한 거기 = 명명한 장소 = 화살표 &rarr; 그 자체가 생긴 곳
 
 에서 환경이 끝날때까지 메모리에 남아있다
 

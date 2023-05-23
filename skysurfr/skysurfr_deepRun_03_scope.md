@@ -2,7 +2,7 @@
 marp: true
 ---
 
-# [[모딥다 스터디 3주차] Scope](skysurfr_deepRun_03_scope.html)
+# [모딥다 스터디 3주차] Scope
 
 ---
 
@@ -18,30 +18,30 @@ marp: true
 
 ---
 
-- ### ECMAScript Source Code 4가지 타입 → 각 Code에서 Scope를 형성
+## ECMAScript Source Code 4가지 타입 → 각 Code에서 Scope를 형성
 
-  - Global Code : 전역에 영향을 주는 코드
-    - not include : 대부분의 { } 를 쓰는 코드
-  - Module Code : Module 내부의 코드, 그 안의
-    - not include : 대부분의 { } 를 쓰는 코드
-  - Function Code : function 내부의 코드, 중첩된 것 빼고
-    - var 는 function scope, 함수 아니면 `{ }` 무시
-    - let과 const는 block scope `{ }`
-  - Eval Code : [`eval`을 절대 사용하지 말 것!](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/eval#eval%EC%9D%84_%EC%A0%88%EB%8C%80_%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80_%EB%A7%90_%EA%B2%83!) → [JSON 파싱 (문자열을 JavaScript 객체로)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/eval#json_%ED%8C%8C%EC%8B%B1_%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%84_javascript_%EA%B0%9D%EC%B2%B4%EB%A1%9C_%EB%B3%80%ED%99%98)
-
----
-
-- ### 코드의 실행 과정 : 표현 → 해석평가 → 실행 → 실행이 해석평가에 영향
-
-  1.  소스코드의 평가 : 무엇을 평가하나 - 문맥(의미 등)를 보고 순서, 범위를 정함
-      1. 변수, 함수같은 선언하는 식별자들 먼저
-      2. 식별자가 무엇을 참조해야 하는지 식별
-  2.  Environment records in a lexical environment : 컴퓨터가 실행할 수 있게(1번에서 평가한 걸) 메모리에 저장
-  3.  소스코드의 실행 - 실행은 다시 2번에 영향을 주고 다시 실행
+- Global Code : 전역에 영향을 주는 코드
+  - not include : 대부분의 { } 를 쓰는 코드
+- Module Code : Module 내부의 코드, 그 안의
+  - not include : 대부분의 { } 를 쓰는 코드
+- Function Code : function 내부의 코드, 중첩된 것 빼고
+  - var 는 function scope, 함수 아니면 `{ }` 무시
+  - let과 const는 block scope `{ }`
+- Eval Code : [`eval`을 절대 사용하지 말 것!](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/eval#eval%EC%9D%84_%EC%A0%88%EB%8C%80_%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80_%EB%A7%90_%EA%B2%83!) → [JSON 파싱 (문자열을 JavaScript 객체로)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/eval#json_%ED%8C%8C%EC%8B%B1_%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%84_javascript_%EA%B0%9D%EC%B2%B4%EB%A1%9C_%EB%B3%80%ED%99%98)
 
 ---
 
-**이해가 안되서 AI 선생님에게**
+### 코드의 실행 과정 : 표현 → 해석평가 → 실행 → 실행이 해석평가에 영향
+
+1. 소스코드의 평가 : 무엇을 평가하나 - 문맥(의미 등)를 보고 순서, 범위를 정함
+    1. 변수, 함수같은 선언하는 식별자들 먼저
+    2. 식별자가 무엇을 참조해야 하는지 식별
+2. Environment records in a lexical environment : 컴퓨터가 실행할 수 있게(1번에서 평가한 걸) 메모리에 저장
+3. 소스코드의 실행 - 실행은 다시 2번에 영향을 주고 다시 실행
+
+---
+
+#### 이해가 안되서 AI 선생님에게
 
 1. **소스코드의 평가** : 이 단계에서는 프로그램이 실행될 준비를 합니다. 코드를 구성하는 각 요소들이 무엇을 의미하는지를 파악합니다. 이렇게 해석되는 요소들에는 변수, 함수, 클래스 등의 식별자가 포함되며, 이들의 사용 범위(scope)와 연관성(context)이 정해집니다. 즉, 어느 위치에서 어떤 식별자가 사용될 수 있는지, 그리고 그 식별자가 참조하는 대상은 무엇인지를 결정합니다.
 2. **Environment Records in a Lexical Environment** : 이는 실행 환경을 의미합니다. 소스코드가 실행되면서 필요한 정보들(예: 변수의 값, 함수의 정의 등)을 저장하는 공간입니다. Lexical Environment는 실행할 코드의 문맥에 따라 변경되며, 실행 과정에서 현재 환경에 필요한 정보를 저장하고 조회하는 역할을 합니다.
