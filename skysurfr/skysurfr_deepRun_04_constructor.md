@@ -2,7 +2,7 @@
 marp: true
 ---
 
-# [모딥다03] 생성자 함수에 의한 오브젝트 생성
+# [모딥다04] 생성자 함수에 의한 오브젝트 생성
 
 constructor
 >One who constructs or makes; specifically, a builder.
