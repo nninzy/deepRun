@@ -189,4 +189,6 @@ choi.apply(sky);  // sky object
 choi.bind(sky)(); // sky object
 ```
 
----
+### 아래의 콜백에 this가 사용된다면 메서드 형태를 사용해야합니다.
+
+addEventListener, schema.pre or schema.static
