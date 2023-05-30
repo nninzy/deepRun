@@ -22,9 +22,9 @@ PR할때 이슈번호 (#5 같은거...) 달아주기
 
 ### 파일 형식
 
-`(deepRun_주차_발표날짜_주제키워드.md)`
+`(skysurfr_deepRun_주차_주제키워드.md)`
 
-> skysurfr/deepRun_02_230516_naming.md
+> skysurfr/skysurfr_deepRun_02_naming.md
 
 ### PR 제목 (Issues에 있는 해당 주차 계획 부분과 연결)
 
