@@ -131,3 +131,7 @@ script src 로 로드하는 경우 자바스크립트 파싱하면 DOM 중단되
 
 - async : HTML 파싱이 끝날 즈음에 자바스크립트 로딩하고 끝나면 자바스크립트 실행하고 끝나면 DOMContentLoaded 실행 : 싱크가 맞아야하는(동기방식) 경우에는 맞지 않음)
 - defer : HTML 파싱하면서 자바스크립트 로딩하고 DOMContentLoaded 끝나고 자바스크립트 실행 (DOM 생성이 완료되고 실행해야 하는 자바스크립트)
+
+#### 초보자를 위한 DOM 설명
+
+[https://www.freecodecamp.org/news/javascript-dom/](https://www.freecodecamp.org/news/javascript-dom/)
