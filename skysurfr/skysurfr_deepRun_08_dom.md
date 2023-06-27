@@ -1,5 +1,10 @@
 # DOM
 
+## DOM 표준안 DOM Level
+
+- DOM Level 1 ~ 3 는 w3c에서
+- 지금은 DOM Level 4 시대 : **[DOM : Living Standard](https://dom.spec.whatwg.org/)**
+
 ## DOM의 개념
 
 Document Object Model
@@ -197,7 +202,7 @@ id 검색은 id로 나머지는 query로
 
 DOM 조작하면 리플로우 리페인트 발생하니까 조심해서 다뤄야 한다
 
-### element.innerHTML
+### element.innerHTML 프로퍼티
 
 - HTML 마크업을 지켜주면서 텍스트로 getter 해준다
 - HTML 마크업을 지켜주면서 텍스트를 DOM으로 파싱해서 반영해준다
@@ -206,3 +211,120 @@ DOM 조작하면 리플로우 리페인트 발생하니까 조심해서 다뤄�
   - HTML5는 script 태그 내의 코드는 실행하지 않는다
   - 태그 요소의 on이벤트는 가능해서 강제로 에러 발생할 수 있다
     - 방지용 라이브러리 HTML sanitization : [https://github.com/cure53/DOMPurify](https://github.com/cure53/DOMPurify)
+
+### element.innerAdjacentHTML() 메서드
+
+- 기존 요소에 영향주지 않고 위치를 지정해 새로운 요소를 삽입
+- 첫번째 인자
+  - `"beforebegin"`
+  - `"afterbegin"`
+  - `"beforeend"`
+  - `"afterend`
+- 두번째 인자
+  - 삽입할 HTML 텍스트
+- 삽입만 하기 때문에 innerHTML보다 빠르나 XSS 취약점은 동일
+
+### createElement(elementName), createTextNode(text)
+
+- 엘리먼트, 텍스트노드를 생성한다
+- 어디에도 연결되지 않은 독립적인 상태
+
+### node.appendChild(nodeObj)
+
+- 인자로 받은 노드를 자식으로 뒤로(막내로) 붙여준다
+
+> 여러 노드를 생성해서 document에 붙일때는 미리 다 조립해두고 붙이는게 리플로우 리페인트가 덜 일어난다
+
+### node.insertBefore(newNode, childNode)
+
+- 첫번째 인자 노드를 두번째 인자 노드의 앞에 붙인다
+- 두번째 노드는 호출한 노드의 자식노드여야 하고 아니면 DOMException 에러난다
+- 두번째 노드가 null이면 appendChild 처럼 작동한다
+
+> appendChild, insertBefore로 기존 노드를 가져다 붙이면 노드가 이동한다
+
+### node.cloneNode(true | false)
+
+- false 거나 인자가 없으면 해당 노드만 클론해서 리턴(shallow copy)
+- true면 하위노드까지 복제 리턴(deep copy)
+
+### node.replaceChild(newChild, oldChild)
+
+- oldChild를 newChild로 대체하고 oldChild는 제거
+- oldChild는 node의 자식이어야 한다
+
+### node.removeChild(child)
+
+- 인수의 노드를 삭제한다
+- node의 자식이어야 한다
+
+## Attribute
+
+### html attribute 프로퍼티
+
+- 해당 속성의 초기 상태
+- 공통으로 사용하는 global attribute (id, class, style, title 등)
+- 이벤트에 사용하는 event attribute (on으로 시작하는)
+- 특정 요소에만 사용할 수 있는 attribute 도 있다 (type, src, href 등)
+- element.attributes 프로퍼티에 읽기 전용(getter)으로 담겨있다
+  - 예를 들어 `element.attributes.id.value` 이런 식으로 접근 가능
+
+### DOM의 attribute 프로퍼티 관련 get/set/remove 메서드
+
+- 해당 속성의 최신 상태를 반영
+- element.getAttribute(attributeName)
+- element.setAttribute(attributeName, attributeValue)
+- element.removeAttribute(attributeName)
+
+> html의 프로퍼티는 html 속성의 초기 상태
+> 최신 상태는 DOM의 프로퍼티에서 각 메서드로 관리 : 변경을 반영
+
+#### element.attributes 와 DOM attribute 프로퍼티와의 관계
+
+- id : element.attributes 와 DOM attribute 와 1:1 대응
+- input 요소들의 value attribute도 1:1 대응
+  - attributes는 초기값, 프로퍼티는 최신값
+- class attributes는 className classList 와 대응
+- for attributes는 htmlFor 와 대응
+- td colspan 대응 프로퍼티가 없다
+- textContent 도 대응 프로퍼티가 없다
+- attribute 이름은 camelCase를 따른다 maxlength -> maxLength
+
+> 이거 왠지 react에서 볼것만 같다
+
+#### attribute의 타입
+
+대부분 텍스트이지만 아닐수도 있다(checked는 true/false)
+
+## 스타일 element.style
+
+- 인라인 스타일만 가능
+- 읽고 쓰기 가능 getter/setter
+- 대응 오브젝트(CSSStyleDeclaration Object)가 있는데 이것도 camelCase 쓴다 backgroundColor
+- 원래대로(kebab-case) 쓰려면 ["background-color"] 요렇게
+- value값에 단위 지정이 필요하면 단위 붙여 문자열로 전달
+
+### 요소에 적용된 CSS 스타일 참조
+
+- 사실 위에꺼는 모든 스타일을 건드리진 못한다
+- window.getComputedStyle(element[, pseudo])
+  - 첫번째 인자에 해당하는 엘리먼트에 있는 모든 CSS 스타일을 참조
+  - 두번째 인자는 pseudo element(:after :before 등)를 지정
+  - CSSStyleDeclaration 오브젝트에 담아서 리턴한다
+
+## HTML 클래스
+
+### element.className
+
+- 읽고 쓰기 가능 getter/setter
+- 텍스트 공백으로 각 클래스구분
+
+### element.classList
+
+- 유사배열 오브젝트로 클래스 관리 DOMTokenList
+- element.classList.add(className)
+- element.classList.remove(className)
+- element.classList.item(index) // return className string
+- element.classList.contains(className) // return true/false
+- element.classList.replace(oldClassName, newClassName)
+- element.classList.toggle(className[, force]) // 첫번째는 토글 두번째는 true 리턴하면 강제 추가, false 리턴하면 강제 삭제(옵션)
