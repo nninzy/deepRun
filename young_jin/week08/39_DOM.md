@@ -505,6 +505,10 @@ getAttribute/ setAttribute 사용
 
 ```
 document.body.setAttribute("style", `background-image:이미지주소`);
+
+
+css attriubute의 표기법
+kebab-case를 그대로 사용중
 ```
 
 <br>
@@ -519,6 +523,8 @@ document.body.setAttribute("style", `background-image:이미지주소`);
 const bodyTag = document.querySelector("body");
 bodyTag.style.backgroundImage = 이미지주소
 
+property 접근법
+camelCase로 접근
 ```
 
 # 배운점
