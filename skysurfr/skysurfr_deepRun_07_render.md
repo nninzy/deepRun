@@ -109,7 +109,7 @@ AST를 사용하면 트랜스파일러 transpiler를 구현할 수도 있다
 - Babel
 - Prettier
 
-![AST 예제](0_mSOIiWpkctkD0Gfg.png)
+![AST 예제](assets/images/0_mSOIiWpkctkD0Gfg.png)
 (퍼온사진)
 
 ## 리플로우 Reflow 리페인트 Repaint
