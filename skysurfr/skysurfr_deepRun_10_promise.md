@@ -45,7 +45,7 @@ let isLoading = true;
 fetch(myRequest)
   .then((res) => {
     const contentType = res.headers.get("content-type");
-    if(contentType && contentType.includes("application/json"")) {
+    if(contentType && contentType.includes("application/json")) {
       return res.json();
     }
     throw new TypeError("This is not JSON");

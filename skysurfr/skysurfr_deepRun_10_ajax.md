@@ -66,7 +66,7 @@ xhr.send() // 요청 전송
 const xhr = new XMLHttpRequest();
 
 xhr.open("POST", "/users"); // POST 방식
-xhr.setRequestHeader("content-type", "application/json);
+xhr.setRequestHeader("content-type", "application/json");
 xhr.send(JSON.stringify({id:1,content:"HTML",complete:false}));
 ```
 
